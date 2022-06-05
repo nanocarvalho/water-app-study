@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #333;
+}
+
+h1, li {
+    color: #fff;
+}
+
+li {
+    list-style: none;
+}
+
+.main-cup {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    height: 200px;
+    width: 50px;
+    background-color: #fff;
+    border: 4px solid rgb(40, 104, 201);
+    margin: 2rem 0;
+}
+
+.water-inside {
+    height: 0%;
+    width: 100%;
+    background-color: rgb(40, 104, 201) ;
+}
+
+.percent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.cups-container ul{
+    display: flex;
+}
+
+.small-cup {
+    height: 50px;
+    width: 50px;
+    color: black;
+    background-color: #fff;
+    border: 4px solid rgb(40, 104, 201);
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+/* add via js */
+.small-cup.selected {
+    background-color: rgb(40, 104, 201);
+}
