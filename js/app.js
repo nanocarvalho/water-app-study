@@ -3,7 +3,59 @@ const percentText = document.querySelector("[data-js=water-inside-percent]")
 const smallCups = [...document.querySelector("[data-js=small-cups]").children]
 let waterPercent = 0
 let quantityWithSelected = 0
-//const timerToDrink = setInterval(()=>{}, 1000)
+
+//just to test
+let daysPassed = 0
+
+//Notification system
+const startNotification = () => {
+    if(Notification.permission === "granted") {
+        showNotification()
+        timerToDrink()
+    } else if (Notification.permission !== "denied") {
+        Notification.requestPermission().then(permission => {
+            if(Notification.permission === "granted") {
+                showNotification() 
+                timerToDrink()
+            }
+        })
+    }
+}
+
+const showNotification = () => {
+    const notification = new Notification('Gostaria de ser avisado quando precisar beber água?', {
+        body: "Essa notificação serve para que quando passar 1 hora, um aviso seja emitido para tomar água!",
+        //icon:
+    })
+}
+
+const timerToDrink = () => {
+    const hourInMS = 60 * 60 * 1000
+    const timerToDrink = setInterval(()=>{
+        showNotification()
+        
+        if(waterPercent === 100) {
+            timerToReset()
+            clearInterval(timerToDrink)   
+        }
+    }, hourInMS)
+}
+
+const timerToReset = () => {
+    console.log('entrou no reset')
+    const dayAfter = (60 * 60 * 1000) * 24
+    //teste extremamente inicial, só pra ver se até amanhã ele apita
+    const timerReset = setInterval(()=>{
+        if(currentDate.getDate() >= tomorrowDate) {
+            localStorage.setItem('waterPercent', 0)
+           startNotification() 
+           daysPassed += 1
+        }
+        clearInterval(timerReset)
+    }, dayAfter)
+}
+
+
 
 const updateWithLocalStorage = () => {
     if(localStorage.quantitySelected > 1) {
@@ -25,7 +77,6 @@ document.addEventListener('DOMContentLoaded', updateWithLocalStorage)
 const updateWater = event => {
     changeSmallCupStyle(event)
     changeWaterInsideHeight(event)
-    console.log(quantityWithSelected)
 }
 
 const changeWaterInsideHeight = event => {
@@ -60,6 +111,7 @@ const changeSmallCupStyle = event => {
 }
 
 //listeners
+
 smallCups.forEach(cup => {
     cup.addEventListener('click', updateWater)
 })
