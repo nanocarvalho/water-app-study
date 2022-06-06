@@ -23,8 +23,8 @@ const startNotification = () => {
 }
 
 const showNotification = () => {
-    const notification = new Notification('Gostaria de ser avisado quando precisar beber água?', {
-        body: "Essa notificação serve para que quando passar 1 hora, um aviso seja emitido para tomar água!",
+    const notification = new Notification('hora de beber água!', {
+        body: "Essa notificação serve para a cada 1 hora, um aviso para tomar água seja emitido!",
         //icon:
     })
 }
