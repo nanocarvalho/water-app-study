@@ -72,7 +72,10 @@ const updateWithLocalStorage = () => {
     }
 }
 
-document.addEventListener('DOMContentLoaded', updateWithLocalStorage)
+document.addEventListener('DOMContentLoaded', ()=> {
+    updateWithLocalStorage()
+    startNotification()
+})
 
 const updateWater = event => {
     changeSmallCupStyle(event)
