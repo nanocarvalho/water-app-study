@@ -42,7 +42,7 @@ const timerToDrink = () => {
     const hourInMS = 60 * 60 * 1000
     const timerToDrink = setInterval(()=>{
         showNotification()
-        
+
         if(waterPercent === 100) {
             timerToReset()
             clearInterval(timerToDrink)   
@@ -56,8 +56,10 @@ const timerToReset = () => {
 
     const timerReset = setInterval(()=>{
         localStorage.setItem('waterPercent', 0)
+        localStorage.setItem('quantitySelected', 0)
         startNotification() 
         daysPassed += 1
+        localStorage.setItem('daysPassed', daysPassed)
         clearInterval(timerReset)
     }, dayAfter)
 }
