@@ -9,7 +9,7 @@ let daysPassed = 0
 
 //Notification system
 const startNotification = () => {
-    if(Notification.permission === "granted") {
+/*     if(Notification.permission === "granted") {
         showNotification()
         timerToDrink()
     } else if (Notification.permission !== "denied") {
@@ -19,7 +19,15 @@ const startNotification = () => {
                 timerToDrink()
             }
         })
-    }
+    } */
+
+    if(Notification.permission !== "denied") {
+        Notification.requestPermission().then(permission => {
+            if(Notification.permission === "granted") {
+                showNotification() 
+                timerToDrink()
+            }
+        })
 }
 
 const showNotification = () => {
@@ -43,19 +51,15 @@ const timerToDrink = () => {
 
 const timerToReset = () => {
     console.log('entrou no reset')
-    const dayAfter = (60 * 60 * 1000) * 24
-    //teste extremamente inicial, só pra ver se até amanhã ele apita
+    const dayAfter = (60 * 60 * 1000) * 6
+
     const timerReset = setInterval(()=>{
-        if(currentDate.getDate() >= tomorrowDate) {
-            localStorage.setItem('waterPercent', 0)
-           startNotification() 
-           daysPassed += 1
-        }
+        localStorage.setItem('waterPercent', 0)
+        startNotification() 
+        daysPassed += 1
         clearInterval(timerReset)
     }, dayAfter)
 }
-
-
 
 const updateWithLocalStorage = () => {
     if(localStorage.quantitySelected > 1) {
