@@ -9,7 +9,7 @@ let daysPassed = 0
 
 //Notification system
 const startNotification = () => {
-/*     if(Notification.permission === "granted") {
+     if(Notification.permission === "granted") {
         showNotification()
         timerToDrink()
     } else if (Notification.permission !== "denied") {
@@ -19,16 +19,16 @@ const startNotification = () => {
                 timerToDrink()
             }
         })
-    } */
+    }
 
-    if(Notification.permission !== "denied") {
+    /*if(Notification.permission !== "denied") {
         Notification.requestPermission().then(permission => {
             if(Notification.permission === "granted") {
                 showNotification() 
                 timerToDrink()
             }
         })
-} 
+} */
 }
 
 const showNotification = () => {
