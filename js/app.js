@@ -4,6 +4,8 @@ const smallCups = [...document.querySelector("[data-js=small-cups]").children]
 let waterPercent = 0
 let quantityWithSelected = 0
 
+//I'll made a test change, turning the timers down to see if it works normally. This is just to remember to put the old values back after the test.
+
 //just to test
 let daysPassed = 0
 
@@ -39,7 +41,7 @@ const showNotification = () => {
 }
 
 const timerToDrink = () => {
-    const hourInMS = 60 * 60 * 1000
+    const hourInMS = 2 * 60 * 1000
     const timerToDrink = setInterval(()=>{
         showNotification()
 
@@ -52,7 +54,7 @@ const timerToDrink = () => {
 
 const timerToReset = () => {
     console.log('entrou no reset')
-    const dayAfter = (60 * 60 * 1000) * 6
+    const dayAfter =  2 * 60 * 1000 //(60 * 60 * 1000) * 6
 
     const timerReset = setInterval(()=>{
         localStorage.setItem('waterPercent', 0)
