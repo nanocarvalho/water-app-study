@@ -11,7 +11,9 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: #333;
+    background-color: #3F94E4;
+    font-family: 'Open Sans', sans-serif;
+    position: relative;   
 }
 
 h1, li {
@@ -22,21 +24,31 @@ li {
     list-style: none;
 }
 
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .main-cup {
     position: relative;
     display: flex;
     flex-direction: column-reverse;
     height: 200px;
-    width: 50px;
-    background-color: #fff;
-    border: 4px solid rgb(40, 104, 201);
+    width: 100px;
+    border-radius: 0 0 1.5rem 1.5rem;
+    border: 3px solid rgb(21, 75, 156);
     margin: 2rem 0;
+    background-color: #fff;
 }
 
 .water-inside {
     height: 0%;
     width: 100%;
-    background-color: rgb(40, 104, 201) ;
+    background-color: #6AB3F8;
+    border-radius: 0 0 1.3rem 1.3rem;
+    transition: all 0.1s linear;
 }
 
 .percent {
@@ -44,22 +56,52 @@ li {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    color: rgb(21, 75, 156);
+    font-weight: bold;
 }
-.cups-container ul{
+
+.percent-Now, .percent-Now span, .small-cup {
+    color: rgb(21, 75, 156);
+    font-weight: bold;
+}
+
+.percent-Now {
+    margin-bottom: 0.5rem;
+}
+
+.cups-container {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .small-cup {
-    height: 50px;
-    width: 50px;
-    color: black;
+    height: 60px;
+    width: 40px;
     background-color: #fff;
-    border: 4px solid rgb(40, 104, 201);
-    margin-left: 1rem;
+    border: 3px solid rgb(21, 75, 156);
+    border-radius: 0 0 1rem 1rem;
+    margin: 0.5rem;
     cursor: pointer;
+    word-break: break-all;
+    text-align: center;
+    transition: all 0.1s linear;
+
 }
 
 /* add via js */
 .small-cup.selected {
-    background-color: rgb(40, 104, 201);
+    background-color: #6AB3F8;
+    color: #fff;
+}
+
+footer {
+    margin-top: 2rem;
+    color: rgb(21, 75, 156);
+}
+
+footer p a {
+    text-decoration: none;
+    color: rgb(21, 75, 156);
+    font-weight: bold;
 }
